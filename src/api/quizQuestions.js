@@ -1,86 +1,86 @@
 var quizQuestions = [
     {
-        question: "What franchise would you rather play a game from?",
+        question: "What is Jerry's occupation?",
         answers: [
             {
-                type: "Microsoft",
-                content: "Halo"
+                type: "Correct",
+                content: "Comedian"
             },
             {
-                type: "Nintendo",
-                content: "Pokemon"
+                type: "Incorrect",
+                content: "Writer"
             },
             {
-                type: "Sony",
-                content: "Uncharted"
+                type: "Incorrect",
+                content: "Accountant"
             }
         ]
     },
     {
-        question: "Which console would you prefer to play with friends?",
+        question: "What is Elain'e's sister's name?",
         answers: [
             {
-                type: "Microsoft",
-                content: "X-Box"
+                type: "Correct",
+                content: "Gail"
             },
             {
-                type: "Nintendo",
-                content: "Nintendo 64"
+                type: "Incorrect",
+                content: "Holly"
             },
             {
-                type: "Sony",
-                content: "Playstation 1"
+                type: "Incorrect",
+                content: "Sue Ellen"
             }
         ]
     },
     {
-        question: "Which of these racing franchises would you prefer to play a game from?",
+        question: "How many episode titles don't begin with 'The'?",
         answers: [
             {
-                type: "Microsoft",
-                content: "Forza"
+                type: "Correct",
+                content: "One"
             },
             {
-                type: "Nintendo",
-                content: "Mario Kart"
+                type: "Incorrect",
+                content: "Two"
             },
             {
-                type: "Sony",
-                content: "Gran Turismo"
+                type: "Incorrect",
+                content: "Three"
             }
         ]
     },
     {
-        question: "Which of these games do you think is best?",
+        question: "Which film director would watch tapes of Seinfeld whilst filming a particularly depressing movie, to cheer himself up?",
         answers: [
             {
-                type: "Microsoft",
-                content: "BioShock"
+                type: "Correct",
+                content: "Steven Spielberg"
             },
             {
-                type: "Nintendo",
-                content: "The Legend of Zelda: Ocarina of Time"
+                type: "Incorrect",
+                content: "James Cameron"
             },
             {
-                type: "Sony",
-                content: "Final Fantasy VII"
+                type: "Incorrect",
+                content: "Martin Scorsese"
             }
         ]
     },
     {
-        question: "What console would you prefer to own?",
+        question: "In 'The Engagement', Jerry asks George to go and see the film 'Firestorm'. George tells him Susan wants to see a different film. Which film is it?",
         answers: [
             {
-                type: "Microsoft",
-                content: "X-Box One"
+                type: "Correct",
+                content: "The Muted Heart"
             },
             {
-                type: "Nintendo",
-                content: "Wii U"
+                type: "Incorrect",
+                content: "Cry, Cry Again"
             },
             {
-                type: "Sony",
-                content: "Playstation 4"
+                type: "Incorrect",
+                content: "The Pain and the Yearning"
             }
         ]
     }

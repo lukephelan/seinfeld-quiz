@@ -16,9 +16,8 @@ class App extends Component {
       answerOptions: [],
       answer: '',
       answersCount: {
-        Nintendo: 0,
-        Microsoft: 0,
-        Sony: 0
+        Correct: 0,
+        Incorrect: 0
       },
       result: ''
     };
@@ -93,7 +92,7 @@ class App extends Component {
 
   setResults(result) {
     if (result.length === 1) {
-      this.setState({ result: result[0] });
+      this.setState({ result: this.state.answersCount.Correct });
     } else {
       this.setState({ result: 'Undetermined' });
     }
@@ -114,7 +113,7 @@ class App extends Component {
 
   renderResult() {
     return (
-      <Result quizResult={this.state.result} />
+      <Result quizResult={this.state.result} questionTotal={quizQuestions.length}/>
     );
   }
 
