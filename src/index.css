@@ -43,6 +43,10 @@ body {
   font-size: 16px;
 }
 
+.quiz-button:hover {
+  background: #fc002e;
+}
+
 /* Quiz Component */
 .answerOptions {
   margin: 0;

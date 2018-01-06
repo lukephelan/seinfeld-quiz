@@ -40,7 +40,7 @@ class App extends Component {
   }
 
   shuffleArray(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     // While there remains elements to shuffle...
     while (0 !== currentIndex) {
@@ -81,9 +81,9 @@ class App extends Component {
   handleAnswerSelected(event) {
     this.setUserAnswer(event.currentTarget.value);
     if (this.state.questionId < quizQuestions.length) {
-      setTimeout(() => this.setNextQuestion(), 300);
+      setTimeout(() => this.setNextQuestion(), 600);
     } else {
-      setTimeout(() => this.setResults(this.getResults()), 300);
+      setTimeout(() => this.setResults(this.getResults()), 600);
     }
   }
 
@@ -107,7 +107,7 @@ class App extends Component {
 
   setResultDescription() {
     const accuracy = this.state.answersCount.Correct / quizQuestions.length;
-    var resultDescription = '';
+    let resultDescription = '';
     if (accuracy <= 0.5) {
       resultDescription = 'I really cannot comprehend how stupid people can be sometimes. Can you comprehend it? I mean, we can put a man on the moon but we\'re still basically very stupid.';
     } else if (accuracy <= 0.75) {

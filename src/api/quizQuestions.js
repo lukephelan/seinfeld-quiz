@@ -1,4 +1,4 @@
-var quizQuestions = [
+const quizQuestions = [
     {
         question: "What is Jerry's occupation?",
         answers: [
