@@ -10,7 +10,7 @@ function QuestionCount(props) {
 }
 
 QuestionCount.propTypes = {
-    counter: PropTypes.number.isrequired,
+    counter: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired
 };
 
