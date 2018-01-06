@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './svg/jerry-head.jpg';
 import update from 'react-addons-update';
 import Quiz from './components/Quiz';
 import quizQuestions from './api/quizQuestions';
