@@ -23,6 +23,7 @@ class App extends Component {
     };
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
   }
+
   componentWillMount() {
     const shuffledAnswerOptions = quizQuestions.map((question) => this.shuffleArray(question.answers));
 
@@ -31,6 +32,7 @@ class App extends Component {
       answerOptions: shuffledAnswerOptions[0]
     });
   }
+
   shuffleArray(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -47,6 +49,7 @@ class App extends Component {
     }
     return array;
   }
+
   setUserAnswer(answer) {
     const updatedAnswersCount = update(this.state.answersCount, {
       [answer]: { $apply: (currentValue) => currentValue + 1 }
@@ -56,6 +59,7 @@ class App extends Component {
       answer: answer
     });
   }
+
   setNextQuestion() {
     const counter = this.state.counter + 1;
     const questionId = this.state.questionId + 1;
@@ -67,14 +71,33 @@ class App extends Component {
       answer: ''
     });
   }
+
   handleAnswerSelected(event) {
     this.setUserAnswer(event.currentTarget.value);
     if (this.state.questionId < quizQuestions.length) {
       setTimeout(() => this.setNextQuestion(), 300);
     } else {
-      // do nothing for now
+      setTimeout(() => this.setResults(this.getResults()), 300);
     }
   }
+
+  getResults() {
+    const answersCount = this.state.answersCount;
+    const answersCountKeys = Object.keys(answersCount);
+    const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
+    const maxAnswerCount = Math.max.apply(null, answersCountValues);
+
+    return answersCountKeys.filter((key) => answersCount[key] === maxAnswerCount);
+  }
+
+  setResults(result) {
+    if (result.length === 1) {
+      this.setState({ result: result[0] });
+    } else {
+      this.setState({ result: 'Undetermined' });
+    }
+  }
+
   render() {
     return (
       <div className="App">
