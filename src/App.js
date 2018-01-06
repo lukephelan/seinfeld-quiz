@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import update from 'react-addons-update';
 import Quiz from './components/Quiz';
 import quizQuestions from './api/quizQuestions';
+import Result from './components/Result';
 import './App.css';
 
 class App extends Component {
@@ -98,6 +99,25 @@ class App extends Component {
     }
   }
 
+  renderQuiz() {
+    return (
+      <Quiz
+        answer={this.state.answer}
+        answerOptions={this.state.answerOptions}
+        questionId={this.state.questionId}
+        question={this.state.question}
+        questionTotal={quizQuestions.length}
+        onAnswerSelected={this.handleAnswerSelected}
+      />
+    );
+  }
+
+  renderResult() {
+    return (
+      <Result quizResult={this.state.result} />
+    );
+  }
+
   render() {
     return (
       <div className="App">
@@ -105,14 +125,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2 className="App-title">Seinfeld Quiz</h2>
         </header>
-        <Quiz
-          answer={this.state.answer}
-          answerOptions={this.state.answerOptions}
-          questionId={this.state.questionId}
-          question={this.state.question}
-          questionTotal={quizQuestions.length}
-          onAnswerSelected={this.handleAnswerSelected}
-        />
+        {this.state.result ? this.renderResult() : this.renderQuiz()}
       </div>
     );
   }
