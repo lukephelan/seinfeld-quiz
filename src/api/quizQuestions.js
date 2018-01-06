@@ -17,7 +17,7 @@ var quizQuestions = [
         ]
     },
     {
-        question: "What is Elain'e's sister's name?",
+        question: "What is Elaine's sister's name?",
         answers: [
             {
                 type: "Correct",

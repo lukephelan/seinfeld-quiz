@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './svg/jerry-head.jpg';
+import logo from './images/seinfeld-logo.png';
 import update from 'react-addons-update';
 import Quiz from './components/Quiz';
 import quizQuestions from './api/quizQuestions';
@@ -19,7 +19,8 @@ class App extends Component {
         Correct: 0,
         Incorrect: 0
       },
-      result: ''
+      result: '',
+      resultDescription: ''
     };
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
     this.handleRestartQuiz = this.handleRestartQuiz.bind(this);
@@ -97,10 +98,24 @@ class App extends Component {
 
   setResults(result) {
     if (result.length === 1) {
-      this.setState({ result: this.state.answersCount.Correct });
+      this.setResultDescription();
+      this.setState({ result: 'Complete' });
     } else {
       this.setState({ result: 'Undetermined' });
     }
+  }
+
+  setResultDescription() {
+    const accuracy = this.state.answersCount.Correct / quizQuestions.length;
+    var resultDescription = '';
+    if (accuracy <= 0.5) {
+      resultDescription = 'I really cannot comprehend how stupid people can be sometimes. Can you comprehend it? I mean, we can put a man on the moon but we\'re still basically very stupid.';
+    } else if (accuracy <= 0.75) {
+      resultDescription = 'That\'s pretty average.';
+    } else {
+      resultDescription = 'You magnificent bastard!';
+    }
+    this.setState({ resultDescription: resultDescription });
   }
 
   renderQuiz() {
@@ -119,8 +134,9 @@ class App extends Component {
   renderResult() {
     return (
       <Result 
-        quizResult={this.state.result} 
+        quizResult={this.state.answersCount.Correct} 
         questionTotal={quizQuestions.length}
+        resultDescription={this.state.resultDescription}
         handleRestartQuiz={this.handleRestartQuiz} />
     );
   }
@@ -136,7 +152,8 @@ class App extends Component {
         Correct: 0,
         Incorrect: 0
       },
-      result: ''
+      result: '',
+      resultDescription: ''
     });
     this.shuffleQuestions();
   }

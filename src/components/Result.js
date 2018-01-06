@@ -13,10 +13,15 @@ function Result(props) {
             transitionAppear
             transitionAppearTimeout={500}
         >
-            <div>
-                You got <strong>{props.quizResult}</strong> out of <strong>{props.questionTotal}</strong>!
+            <div className="quiz-result">
+                <p>
+                    You got <strong>{props.quizResult}</strong> out of <strong>{props.questionTotal}</strong>!
+                </p>
+                <p>
+                    {props.resultDescription}
+                </p>
             </div>
-            <button onClick={props.handleRestartQuiz}>Try again</button>
+            <button className="quiz-button" onClick={props.handleRestartQuiz}>TRY AGAIN</button>
         </ReactCSSTransitionGroup>
     );
 }
