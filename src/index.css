@@ -110,7 +110,7 @@ body {
 
 .radioCustomButton:checked ~ .radioCustomLabel:before {
     content: '';
-    background: #8BC53F url(./svg/icon-check.svg) no-repeat;
+    background: #8BC53F url(./images/icon-check.svg) no-repeat;
     background-size: 27px;
     border-color: #8BC53F;
 }
