@@ -3,7 +3,7 @@ import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 function Result(props) {
-    return (
+    return (   
         <ReactCSSTransitionGroup
             className="container result"
             component="div"
@@ -16,6 +16,7 @@ function Result(props) {
             <div>
                 You got <strong>{props.quizResult}</strong> out of <strong>{props.questionTotal}</strong>!
             </div>
+            <button onClick={props.handleRestartQuiz}>Try again</button>
         </ReactCSSTransitionGroup>
     );
 }

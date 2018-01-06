@@ -22,9 +22,14 @@ class App extends Component {
       result: ''
     };
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
+    this.handleRestartQuiz = this.handleRestartQuiz.bind(this);
   }
 
   componentWillMount() {
+    this.shuffleQuestions();
+  }
+
+  shuffleQuestions() {
     const shuffledAnswerOptions = quizQuestions.map((question) => this.shuffleArray(question.answers));
 
     this.setState({
@@ -113,8 +118,27 @@ class App extends Component {
 
   renderResult() {
     return (
-      <Result quizResult={this.state.result} questionTotal={quizQuestions.length}/>
+      <Result 
+        quizResult={this.state.result} 
+        questionTotal={quizQuestions.length}
+        handleRestartQuiz={this.handleRestartQuiz} />
     );
+  }
+
+  handleRestartQuiz() {
+    this.setState({
+      counter: 0,
+      questionId: 1,
+      question: '',
+      answerOptions: [],
+      answer: '',
+      answersCount: {
+        Correct: 0,
+        Incorrect: 0
+      },
+      result: ''
+    });
+    this.shuffleQuestions();
   }
 
   render() {
